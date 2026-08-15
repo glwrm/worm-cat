@@ -1,34 +1,30 @@
 ---
 import { getImage } from "astro:assets";
-import myBackground from "../assets/grassblock.png"; // Local asset image
+import grassBlock from "../assets/grassblock.png";
+import serverRack from "../assets/serverrack.png";
 
-// Process the image through Astro's asset pipeline
-const optimizedGrassBlock = await getImage({
-  src: myBackground,
-  format: 'png',
-  quality: 'high',
-  width: 1920,
-});
+const optimizedGrassBlock = await getImage({src: grassBlock,format: 'png',quality: 'high',width: 1920,});
+const optimizedServerRack = await getImage({src: serverRack,format: 'png',quality: 'high',width: 1920,});
 ---
 
 <div class="about">
     <h1>About</h1>
     <p>I'm glworm, though you might know me as ghostjusr. I like to start lots of things and never finish them. Explore some of the things I'm currently into::</p>
     <div class="hobbywrapper">
-        <div>
-            <h2>DEV</h2>
-            <p>Random projects (Most unfinished)</p>
-        </div>
-        <div>
+        <div style={`background-image: url('${optimizedServerRack.src}');`}><a href="#dev">
+            <h2 style="margin-top: 13px; margin-right: 6px;">DEV</h2>
+            <p style="font-size: 1.1rem; margin-right: 6px;">Random projects (Most unfinished)</p>
+        </a></div>
+        <div><a href="#music">
             <h2>MUSIC</h2>
             <p>Producing electronic music</p>
-        </div>
-        <div>
+        </a></div>
+        <div><a href="#cycling">
             <h2>CYCLING</h2>
             <p>Bike touring and bikepacking</p>
-        </div>
-        <div style={`background-image: url('${optimizedGrassBlock.src}');`}><a>
-            <h2 style="margin-top: 10px; margin-right: 6px;">MINCERAFT</h2>
+        </a></div>
+        <div style={`background-image: url('${optimizedGrassBlock.src}');`}><a href="#minecraft">
+            <h2 style="margin-top: 13px; margin-right: 6px;">MINCERAFT</h2>
             <p style="font-size: 1.1rem; margin-right: 6px;">Datapacking, modding, & messing <br>around</p>
         </a></div>
     </div>
