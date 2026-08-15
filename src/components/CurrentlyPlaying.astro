@@ -1,0 +1,107 @@
+---
+const API_URL = "http://localhost:4321/api/music";
+const SECRET = import.meta.env.WEBHOOK_SECRET;
+
+type CurrentlyPlaying = {
+    track: string;
+    artist: string;
+    album: string | null;
+    duration: number;
+    currentTime: number;
+    isPlaying: boolean;
+    trackArt: string | null;
+    originUrl: string | null;
+};
+
+let song: CurrentlyPlaying | null = null;
+
+try {
+    const response = await fetch(API_URL, {
+        headers: {
+            "X-Scrobbler-Secret": SECRET,
+        },
+    });
+
+    if (response.ok) {
+        song = await response.json();
+    }
+} catch (error) {
+    console.error("Could not get currently playing song:", error);
+}
+---
+
+<div class="currently-playing">
+    {song && (
+        <div class="song">
+            {song.trackArt && (
+                <img
+                    src={song.trackArt}
+                    alt=""
+                    class="art"
+                />
+            )}
+
+            <div class="info">
+                <div class="status">
+                    {song.isPlaying ? "Currently playing" : "Paused"}
+                </div>
+
+                <div class="track">
+                    {song.track}
+                </div>
+
+                <div class="artist">
+                    {song.artist}
+                </div>
+            </div>
+        </div>
+    )}
+
+    {!song && (
+        <div class="offline">
+            Nothing is currently playing
+        </div>
+    )}
+</div>
+
+<style>
+    .currently-playing {
+        display: inline-block;
+    }
+
+    .song {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .art {
+        width: 64px;
+        height: 64px;
+        object-fit: cover;
+        border-radius: 6px;
+    }
+
+    .info {
+        min-width: 0;
+    }
+
+    .status {
+        font-size: 0.75rem;
+        opacity: 0.6;
+        margin-bottom: 2px;
+    }
+
+    .track {
+        font-weight: 600;
+    }
+
+    .artist {
+        font-size: 0.9rem;
+        opacity: 0.7;
+    }
+
+    .offline {
+        opacity: 0.6;
+    }
+</style>
