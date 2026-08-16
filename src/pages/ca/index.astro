@@ -1,0 +1,13 @@
+---
+import ca from "../../i18n/ca";
+const t = ca;
+
+import Hero from '../../components/Hero.astro';
+import About from '../../components/About.astro';
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout>
+	<Hero text={t.hero}/>
+	<About text={t.about}/>
+</Layout>

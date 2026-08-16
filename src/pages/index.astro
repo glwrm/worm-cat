@@ -1,10 +1,21 @@
 ---
+import en from "../i18n/en";
+const t = en;
+
 import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
 import Layout from '../layouts/Layout.astro';
+
+export const prerender = false;
+
+const languageCookie = Astro.cookies.get("language")?.value;
+
+if (languageCookie === "ca") {
+    return Astro.redirect("/ca/");
+}
 ---
 
 <Layout>
-	<Hero />
-	<About />
+	<Hero text={t.hero}/>
+	<About text={t.about}/>
 </Layout>

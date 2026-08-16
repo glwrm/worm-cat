@@ -5,27 +5,43 @@ import serverRack from "../assets/serverrack.png";
 
 const optimizedGrassBlock = await getImage({src: grassBlock,format: 'png',quality: 'high',width: 1920,});
 const optimizedServerRack = await getImage({src: serverRack,format: 'png',quality: 'high',width: 1920,});
+
+// Language support
+interface Props {
+    text: {
+        title: string;
+        description: string;
+        hobby_dev: string;
+        hobby_dev_desc: string;
+        hobby_music: string;
+        hobby_music_desc: string;
+        hobby_cycling: string;
+        hobby_cycling_desc: string;
+        hobby_minecraft: string;
+        hobby_minecraft_desc: string;
+    };
+}
 ---
 
 <div class="about">
-    <h1>About</h1>
-    <p>I'm glworm, though you might know me as ghostjusr. I like to start lots of things and never finish them. Explore some of the things I'm currently into::</p>
+    <h1>{Astro.props.text.title}</h1>
+    <p>{Astro.props.text.description}</p>
     <div class="hobbywrapper">
         <div style={`background-image: url('${optimizedServerRack.src}');`}><a href="#dev">
-            <h2 style="margin-top: 13px; margin-right: 6px;">DEV</h2>
-            <p style="font-size: 1.1rem; margin-right: 6px;">Random projects (Most unfinished)</p>
+            <h2 style="margin-top: 13px; margin-right: 6px;">{Astro.props.text.hobby_dev}</h2>
+            <p style="font-size: 1.1rem; margin-right: 6px;">{Astro.props.text.hobby_dev_desc}</p>
         </a></div>
         <div><a href="#music">
-            <h2>MUSIC</h2>
-            <p>Producing electronic music</p>
+            <h2>{Astro.props.text.hobby_music}</h2>
+            <p>{Astro.props.text.hobby_music_desc}</p>
         </a></div>
         <div><a href="#cycling">
-            <h2>CYCLING</h2>
-            <p>Bike touring and bikepacking</p>
+            <h2>{Astro.props.text.hobby_cycling}</h2>
+            <p>{Astro.props.text.hobby_cycling_desc}</p>
         </a></div>
         <div style={`background-image: url('${optimizedGrassBlock.src}');`}><a href="#minecraft">
-            <h2 style="margin-top: 13px; margin-right: 6px;">MINCERAFT</h2>
-            <p style="font-size: 1.1rem; margin-right: 6px;">Datapacking, modding, & messing <br>around</p>
+            <h2 style="margin-top: 13px; margin-right: 6px;">{Astro.props.text.hobby_minecraft}</h2>
+            <p style="font-size: 1.1rem; margin-right: 6px;">{Astro.props.text.hobby_minecraft_desc}</p>
         </a></div>
     </div>
 </div>
