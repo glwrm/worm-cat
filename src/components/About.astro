@@ -1,7 +1,10 @@
 ---
 import { getImage } from "astro:assets";
-import grassBlock from "../assets/grassblock.png";
-import serverRack from "../assets/serverrack.png";
+import { Image } from 'astro:assets';
+
+import grassBlock from "../assets/grass_block.png";
+import serverRack from "../assets/server_rack.png";
+import kawaiispeaker from "../assets/kawaii_speaker.png";
 
 const optimizedGrassBlock = await getImage({src: grassBlock,format: 'png',quality: 'high',width: 1920,});
 const optimizedServerRack = await getImage({src: serverRack,format: 'png',quality: 'high',width: 1920,});
@@ -32,12 +35,13 @@ interface Props {
             <p style="font-size: 1.1rem; margin-right: 6px;">{Astro.props.text.hobby_dev_desc}</p>
         </a></div>
         <div><a href="#music">
-            <h2>{Astro.props.text.hobby_music}</h2>
-            <p>{Astro.props.text.hobby_music_desc}</p>
+            <Image src={kawaiispeaker} alt="Kawaii Speaker" class="speaker-image" />
+            <h2 style="margin-top: 25px; margin-right: 6px;">{Astro.props.text.hobby_music}</h2>
+            <p style="font-size: 1.1rem; margin-right: 6px;">{Astro.props.text.hobby_music_desc}</p>
         </a></div>
         <div><a href="#cycling">
-            <h2>{Astro.props.text.hobby_cycling}</h2>
-            <p>{Astro.props.text.hobby_cycling_desc}</p>
+            <h2 style="margin-top: 13px; margin-right: 6px;">{Astro.props.text.hobby_cycling}</h2>
+            <p style="font-size: 1.1rem; margin-right: 6px;">{Astro.props.text.hobby_cycling_desc}</p>
         </a></div>
         <div style={`background-image: url('${optimizedGrassBlock.src}');`}><a href="#minecraft">
             <h2 style="margin-top: 13px; margin-right: 6px;">{Astro.props.text.hobby_minecraft}</h2>
@@ -118,6 +122,7 @@ interface Props {
     }
 
     .hobbywrapper div {
+        position: relative;
         flex: 1;
         max-height: 140px;
         text-align: center;
@@ -138,5 +143,19 @@ interface Props {
     .hobbywrapper div:hover {
         transform: translateY(-6px) scale(1);
         filter: drop-shadow(0 12px 40px rgba(0, 0, 0, 0.5));
+    }
+
+    .speaker-image {
+        position: absolute;
+        top: 42%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+
+        width: 83%;
+        height: auto;
+        
+        z-index: -1;
     }
 </style>

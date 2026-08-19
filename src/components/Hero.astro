@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import pfp from '../assets/glworm.png';
+import pfp from '../assets/glworm.jpg';
 
 const currentLocale = Astro.currentLocale ?? "en";
 
@@ -76,7 +76,6 @@ interface Props {
             if (!response.ok) {throw new Error(`HTTP ${response.status}`);}
 
             const data = await response.json();
-            console.log(data);
             const wpm = document.querySelector("#wpm-typing");
 
             if (wpm) {wpm.textContent = `${data.wpm} WPM`;}
