@@ -9,7 +9,7 @@ import youtube from "../assets/icons/youtube.png";
 import AudioPlayer from "../components/AudioPlayer.astro";
 import currentDemo from "../assets/audio/isthisurs.wav";
 ---
-<div id="music">
+<div id="music" style="backdrop-filter: blur(12px);">
     <h1>{Astro.props.text.title}</h1>
     <hr>
     <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5hw1nGhfflwkbhtljAh1Pg?utm_source=generator&theme=0&si=f21c573be7914973" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
@@ -49,7 +49,6 @@ import currentDemo from "../assets/audio/isthisurs.wav";
         color: white;
         background: rgba(255, 255, 255, 0.15);
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-        backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border: 1px solid rgba(255, 255, 255, 0.5);
         display: flex;

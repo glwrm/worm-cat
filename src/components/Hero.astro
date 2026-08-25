@@ -5,7 +5,7 @@ import pfp from '../assets/glworm.jpg';
 const currentLocale = Astro.currentLocale ?? "en";
 ---
 
-<div id="hero">
+<div id="hero" style="backdrop-filter: blur(12px);">
     <div>
         <Image src={pfp} alt={Astro.props.text.pfp_alt}/>
         <h1>glworm <!--<span></span>--></h1>
@@ -93,7 +93,6 @@ const currentLocale = Astro.currentLocale ?? "en";
         color: white;
         background: rgba(255, 255, 255, 0.15);
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-        backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border: 1px solid rgba(255, 255, 255, 0.5);
         display: flex;

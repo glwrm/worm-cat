@@ -12,7 +12,7 @@ const optimizedServerRack = await getImage({src: serverRack,format: 'png',qualit
 const optimizedOtherCube = await getImage({src: othercube,format: 'png',quality: 'high',width: 1920,});
 ---
 
-<div class="about">
+<div id="about" style="backdrop-filter: blur(12px);">
     <h1>{Astro.props.text.title}</h1>
     <p>{Astro.props.text.description}</p>
     <div class="hobbywrapper">
@@ -88,7 +88,7 @@ const optimizedOtherCube = await getImage({src: othercube,format: 'png',quality:
 </script>
 
 <style>
-    .about {
+    #about {
         grid-column: 2 / 4;
         grid-row: 2 / 3;
         box-sizing: border-box; 
@@ -100,7 +100,6 @@ const optimizedOtherCube = await getImage({src: othercube,format: 'png',quality:
         color: white;
         background: rgba(255, 255, 255, 0.15);
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-        backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         border: 1px solid rgba(255, 255, 255, 0.5);
         display: flex;
@@ -122,7 +121,7 @@ const optimizedOtherCube = await getImage({src: othercube,format: 'png',quality:
     }
 
 
-    .about:hover {
+    #about:hover {
         transform: translateY(-6px) scale(1);
         filter: blur(0);
         box-shadow: 0 12px 40px rgba(255, 255, 255, 0.5);
