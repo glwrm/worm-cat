@@ -1,8 +1,11 @@
 ---
 import SmallLayout from '../layouts/smallLayout.astro';
 import CreditsHead from '../components/CreditsHead.astro';
+
+import en from "../i18n/en";
+const t = en;
 ---
 
 <SmallLayout>
-    <CreditsHead />
+    <CreditsHead text={t.credits} />
 </SmallLayout>

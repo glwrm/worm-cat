@@ -1,0 +1,11 @@
+---
+import SmallLayout from '../../layouts/smallLayout.astro';
+import CreditsHead from '../../components/CreditsHead.astro';
+
+import ca from "../../i18n/ca";
+const t = ca;
+---
+
+<SmallLayout>
+    <CreditsHead text={t.credits} />
+</SmallLayout>

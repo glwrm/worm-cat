@@ -1,6 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
+import node from '@astrojs/node';
+
 export default defineConfig({
   security: {
     checkOrigin: false,
@@ -9,7 +11,7 @@ export default defineConfig({
       {}
     ],
   },
-  
+
   server: {
     host: true,
     allowedHosts: true,
@@ -29,4 +31,8 @@ export default defineConfig({
             prefixDefaultLocale: false,
         },
     },
+
+  adapter: node({
+    mode: 'standalone',
+  }),
 });

@@ -1,5 +1,5 @@
 <div>
-
+    <h1>{Astro.props.text.title}</h1>
 </div>
 
 <style>
@@ -29,5 +29,13 @@
         transform: translateY(-6px) scale(1);
         filter: blur(0);
         box-shadow: 0 12px 40px rgba(255, 255, 255, 0.5);
+    }
+
+    h1 {
+        font-family: 'Audiowide', cursive;
+        font-size: 2.5rem;
+        margin: 5px;
+        margin-top: 20px;
+        margin-right: 0;
     }
 </style>
