@@ -22,6 +22,9 @@ export default defineConfig({
       cors: true,
       allowedHosts: true,
     },
+    build: {
+      cssTarget: 'es2022'
+    },
   },
 
   i18n: {
