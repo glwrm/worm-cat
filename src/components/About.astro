@@ -5,50 +5,88 @@ import { Image } from 'astro:assets';
 import grassBlock from "../assets/grass_block.png";
 import serverRack from "../assets/server_rack.png";
 import kawaiispeaker from "../assets/kawaii_speaker.png";
+import othercube from "../assets/other_cube.png";
 
 const optimizedGrassBlock = await getImage({src: grassBlock,format: 'png',quality: 'high',width: 1920,});
 const optimizedServerRack = await getImage({src: serverRack,format: 'png',quality: 'high',width: 1920,});
-
-// Language support
-interface Props {
-    text: {
-        title: string;
-        description: string;
-        hobby_dev: string;
-        hobby_dev_desc: string;
-        hobby_music: string;
-        hobby_music_desc: string;
-        hobby_cycling: string;
-        hobby_cycling_desc: string;
-        hobby_minecraft: string;
-        hobby_minecraft_desc: string;
-    };
-}
+const optimizedOtherCube = await getImage({src: othercube,format: 'png',quality: 'high',width: 1920,});
 ---
 
 <div class="about">
     <h1>{Astro.props.text.title}</h1>
     <p>{Astro.props.text.description}</p>
     <div class="hobbywrapper">
-        <div style={`background-image: url('${optimizedServerRack.src}');`}><a href="#dev">
+        <div id="dev-hobby" style={`background-image: url('${optimizedServerRack.src}');`}><a href="#dev">
             <h2 style="margin-top: 13px; margin-right: 6px;">{Astro.props.text.hobby_dev}</h2>
             <p style="font-size: 1.1rem; margin-right: 6px;">{Astro.props.text.hobby_dev_desc}</p>
         </a></div>
-        <div><a href="#music">
+        <div id="music-hobby"><a href="#music">
             <Image src={kawaiispeaker} alt="Kawaii Speaker" class="speaker-image" />
             <h2 style="margin-top: 25px; margin-right: 6px;">{Astro.props.text.hobby_music}</h2>
             <p style="font-size: 1.1rem; margin-right: 6px;">{Astro.props.text.hobby_music_desc}</p>
         </a></div>
-        <div><a href="#cycling">
-            <h2 style="margin-top: 13px; margin-right: 6px;">{Astro.props.text.hobby_cycling}</h2>
-            <p style="font-size: 1.1rem; margin-right: 6px;">{Astro.props.text.hobby_cycling_desc}</p>
-        </a></div>
-        <div style={`background-image: url('${optimizedGrassBlock.src}');`}><a href="#minecraft">
+        <div id="minecraft-hobby" style={`background-image: url('${optimizedGrassBlock.src}');`}><a href="#minecraft">
             <h2 style="margin-top: 13px; margin-right: 6px;">{Astro.props.text.hobby_minecraft}</h2>
             <p style="font-size: 1.1rem; margin-right: 6px;">{Astro.props.text.hobby_minecraft_desc}</p>
         </a></div>
+        <div id="other-hobby" style={`background-image: url('${optimizedOtherCube.src}');`}><a href="#other">
+            <h2 style="margin-top: 13px; margin-right: 6px;">{Astro.props.text.hobby_other}</h2>
+            <p style="font-size: 1.1rem; margin-right: 6px;">{Astro.props.text.hobby_other_desc}</p>
+        </a></div>
     </div>
 </div>
+
+<script>
+    const devHobby = document.getElementById("dev-hobby");
+    const musicHobby = document.getElementById("music-hobby");
+    const minecraftHobby = document.getElementById("minecraft-hobby");
+    const otherHobby = document.getElementById("other-hobby");
+
+    const hobbyDivs = [
+        document.getElementById("dev"),
+        document.getElementById("music"),
+        document.getElementById("minecraft"),
+        document.getElementById("other")
+    ].filter((div): div is HTMLElement => div !== null);
+
+    function highlight(id: string) {
+        // Remove the effect from every full hobby card that actually exists
+        hobbyDivs.forEach((div) => {
+            div.classList.remove("sim-hover");
+        });
+
+        // Find the corresponding full card
+        const target = document.getElementById(id);
+
+        if (!target) {
+            console.warn(`Could not find full hobby card: #${id}`);
+            return;
+        }
+
+        target.classList.add("sim-hover");
+
+        setTimeout(() => {
+            target.classList.remove("sim-hover");
+        }, 1000);
+    }
+
+    devHobby?.addEventListener("click", () => {
+        highlight("dev");
+    });
+
+    musicHobby?.addEventListener("click", () => {
+        highlight("music");
+    });
+
+    minecraftHobby?.addEventListener("click", () => {
+        highlight("minecraft");
+    });
+
+    otherHobby?.addEventListener("click", () => {
+        highlight("other");
+    });
+</script>
+
 <style>
     .about {
         grid-column: 2 / 4;

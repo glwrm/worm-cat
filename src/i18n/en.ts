@@ -10,9 +10,12 @@ export default {
         hobby_dev_desc: "Random projects (Most unfinished)",
         hobby_music: "MUSIC",
         hobby_music_desc: "Producing electronic music",
-        hobby_cycling: "CYCLING",
-        hobby_cycling_desc: "Bike touring and bikepacking",
         hobby_minecraft: "MINECRAFT",
         hobby_minecraft_desc: "Datapacking, modding, & messing around",
+        hobby_other: "OTHER",
+        hobby_other_desc: "More hobbies I enjoy",
+    },
+    music: {
+        title: "Music",
     },
 }

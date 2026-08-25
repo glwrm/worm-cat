@@ -3,20 +3,12 @@ import { Image } from 'astro:assets';
 import pfp from '../assets/glworm.jpg';
 
 const currentLocale = Astro.currentLocale ?? "en";
-
-// Language support
-interface Props {
-    text: {
-        country: string;
-        pfp_alt: string;
-    };
-}
 ---
 
-<div class="hero">
+<div id="hero">
     <div>
         <Image src={pfp} alt={Astro.props.text.pfp_alt}/>
-        <h1>glworm <span>(status)</span></h1>
+        <h1>glworm <!--<span></span>--></h1>
     </div>
     <div class="lang-selector">
         <a href="/" class:list={{ selectedlang: currentLocale === "en" }} data-language="en">EN</a>
@@ -89,7 +81,7 @@ interface Props {
 </script>
 
 <style>
-    .hero {
+    #hero {
         grid-column: 2 / 4;
         grid-row: 1 / 2;
         box-sizing: border-box;
@@ -111,13 +103,14 @@ interface Props {
         z-index: 5;
     }
 
-    .hero:hover {
+    #hero:hover,
+    #hero.sim-hover {
         transform: translateY(-6px) scale(1);
         filter: blur(0);
         box-shadow: 0 12px 40px rgba(255, 255, 255, 0.5);
     }
 
-    .hero h1 {
+    #hero h1 {
         font-family: 'Audiowide', cursive;
         font-size: 2.5rem;
         margin: 5px;
@@ -125,21 +118,22 @@ interface Props {
         margin-right: 0;
     }
 
-    .hero img {
+    #hero img {
         width: 5rem;
         height: 5rem;
         border-radius: 20px;
         margin: 10px;
+        margin-top: 15px;
     }
 
-    .hero h1 span {
+    #hero h1 span {
         color: #567d82;
         font-size: 1.35rem;
         margin: 20px;
         margin-left: 0;
     }
 
-    .hero div {
+    #hero div {
         display: flex;
     }
 
@@ -164,7 +158,7 @@ interface Props {
     hr {
 		width: 95%;
 		border: 1px solid rgba(255, 255, 255, 0.5);
-		margin: 5px 0 25px 0;
+		margin: 10px 0 25px 0;
         align-self: center;
 	}
 

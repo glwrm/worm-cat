@@ -10,9 +10,12 @@ export default {
         hobby_dev_desc: "Projectes aleatoris (La majoria inacabats)",
         hobby_music: "MÚSICA",
         hobby_music_desc: "Produir música electrònica",
-        hobby_cycling: "CICLISME",
-        hobby_cycling_desc: "Cicloturisme i bikepacking",
         hobby_minecraft: "MINECRAFT",
         hobby_minecraft_desc: "Comandes, modding i experimentació",
+        hobby_other: "ALTRES",
+        hobby_other_desc: "Més aficions que m'agraden",
+    },
+    music: {
+        title: "Música",
     },
 }

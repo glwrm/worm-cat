@@ -1,3 +1,11 @@
+---
+import Footer from '../components/Footer.astro';
+
+import { getImage } from "astro:assets";
+import bg from "../assets/bg.jpg";
+
+const optimizedBg = await getImage({src: bg,format: 'jpg',quality: 'high',width: 1920,});
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -12,10 +20,12 @@
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 		<title>worm.cat</title>
 	</head>
-	<body>
+	<body style={`background: url('${optimizedBg.src}') center / cover no-repeat;`}>
 		<main>
 			<slot />
+			<p class="image-credits">Image taken by me @ Niagara Falls</p>
 		</main>
+		<Footer />
 	</body>
 </html>
 
@@ -26,8 +36,8 @@
 		width: 100%;
 		height: 100%;
 		font-family: "Roboto", "Arial";
-		background: black;
 		scroll-behavior: smooth;
+		overflow-x: hidden;
 	}
 
 	main {
@@ -37,5 +47,17 @@
 		gap: 1rem;
 		margin: 20px;
 		scroll-behavior: smooth;
+	}
+
+	.image-credits {
+		position: fixed;
+		bottom: 65px;
+		right: 0;
+		font-size: 1rem;
+		font-family: "Roboto", "Arial";
+		text-shadow: 0px 0px 15px black;
+		color: white;
+		margin: 15px;
+		z-index: 10;
 	}
 </style>

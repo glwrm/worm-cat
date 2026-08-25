@@ -1,16 +1,50 @@
-<div class="music">
+---
+import { Image } from 'astro:assets';
 
+import apple_music from "../assets/icons/apple_music.png";
+import soundcloud from "../assets/icons/soundcloud.png";
+import spotify from "../assets/icons/spotify.png";
+import youtube from "../assets/icons/youtube.png";
+
+import AudioPlayer from "../components/AudioPlayer.astro";
+import currentDemo from "../assets/audio/isthisurs.wav";
+---
+<div id="music">
+    <h1>{Astro.props.text.title}</h1>
+    <hr>
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5hw1nGhfflwkbhtljAh1Pg?utm_source=generator&theme=0&si=f21c573be7914973" width="100%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <div class="socials">
+        <a href="https://soundcloud.com/glworm" target="_blank" rel="noopener noreferrer">
+            <Image src={soundcloud} alt="SoundCloud" />
+        </a>
+        <a href="https://open.spotify.com/artist/3KFx8fMRLjxTjmvwgNLOYy?si=9WDXPK_4TKmVXiB_kWFdIw" target="_blank" rel="noopener noreferrer">
+            <Image src={spotify} alt="Spotify" />
+        </a>
+        <a href="https://www.youtube.com/@glwrmxo" target="_blank" rel="noopener noreferrer">
+            <Image src={youtube} alt="YouTube" />
+        </a>
+        <a href="https://music.apple.com/us/artist/glworm/6795281272" target="_blank" rel="noopener noreferrer">
+            <Image src={apple_music} alt="Apple Music" />
+        </a>
+    </div>
+    <h2>Currently working on:</h2>
+    <AudioPlayer
+        src={currentDemo}
+        title="Untitled"
+    />
+    <p>Favorite song:</p>
+    <a></a>
 </div>
 
 <style>
-    .music {
-        grid-column: 2 / 4;
-        grid-row: 1 / 2;
+    #music {
+        grid-column: 4 / 5;
+        grid-row: 1 / 3;
         box-sizing: border-box;
         width: auto;
         text-align: center;
         border-radius: 20px;
-        padding: 0 5px;
+        padding: 0 15px;
         margin: 5px;
         color: white;
         background: rgba(255, 255, 255, 0.15);
@@ -25,9 +59,61 @@
         z-index: 5;
     }
 
-    .music:hover {
+    #music:hover,
+    #music.sim-hover {
         transform: translateY(-6px) scale(1);
         filter: blur(0);
         box-shadow: 0 12px 40px rgba(255, 255, 255, 0.5);
     }
+
+    #music h1 {
+        font-family: 'Audiowide', cursive;
+        font-size: 2.5rem;
+        margin: 5px;
+        margin-top: 20px;
+        margin-right: 0;
+    }
+
+    #music img {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 20px;
+        margin: 10px;
+        margin-top: 15px;
+    }
+
+    #music h2 {
+        font-family: 'Audiowide', cursive;
+        font-size: 1.5rem;
+        margin: 15px;
+        margin-top: -10px;
+    }
+
+    #music div.socials {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+        padding: 5px;
+        margin: 10px;
+    }
+
+    #music div.socials a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.4));
+        transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    #music div.socials a:hover {
+        transform: translateY(-6px) scale(1);
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    }
+
+    hr {
+		width: 95%;
+		border: 1px solid rgba(255, 255, 255, 0.5);
+		margin: 10px 0 25px 0;
+        align-self: center;
+	}
 </style>

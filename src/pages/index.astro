@@ -2,9 +2,10 @@
 import en from "../i18n/en";
 const t = en;
 
+import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
-import Layout from '../layouts/Layout.astro';
+import Music from '../components/Music.astro';
 
 export const prerender = false;
 
@@ -18,4 +19,5 @@ if (languageCookie === "ca") {
 <Layout>
 	<Hero text={t.hero}/>
 	<About text={t.about}/>
+	<Music text={t.music}/>
 </Layout>
