@@ -26,3 +26,7 @@ pnpm-debug.log*
 # database
 data.db
 data.db-*
+
+# hidden folders
+.VSCodeCounter/
+.vscode/
