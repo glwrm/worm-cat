@@ -30,7 +30,7 @@ import currentDemo from "../assets/audio/isthisurs.wav";
     <h2>{Astro.props.text.currentDemo}</h2>
     <AudioPlayer
         src={currentDemo}
-        title="Untitled"
+        title={Astro.props.text.demoTitle}
     />
     <p class="fav-song">Favorite song:</p>
     <a class="fav-song" href="https://youtu.be/QsFuLUiM1xE" target="_blank" rel="noopener noreferrer">Trendy — bladee</a>

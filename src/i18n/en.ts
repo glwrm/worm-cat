@@ -18,6 +18,7 @@ export default {
     music: {
         title: "Music",
         currentDemo: "Currently working on:",
+        demoTitle: "Untitled",
     },
     credits: {
         title: "Credits",
