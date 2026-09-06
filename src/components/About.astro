@@ -5,11 +5,11 @@ import { Image } from 'astro:assets';
 import grassBlock from "../assets/grass_block.png";
 import serverRack from "../assets/server_rack.png";
 import kawaiispeaker from "../assets/kawaii_speaker.png";
-import othercube from "../assets/other_cube.png";
+import wipcube from "../assets/wip_cube.png";
 
 const optimizedGrassBlock = await getImage({src: grassBlock,format: 'png',quality: 'high',width: 1920,});
 const optimizedServerRack = await getImage({src: serverRack,format: 'png',quality: 'high',width: 1920,});
-const optimizedOtherCube = await getImage({src: othercube,format: 'png',quality: 'high',width: 1920,});
+const optimizedwipCube = await getImage({src: wipcube,format: 'png',quality: 'high',width: 1920,});
 ---
 
 <div id="about" style="backdrop-filter: blur(12px);">
@@ -29,9 +29,9 @@ const optimizedOtherCube = await getImage({src: othercube,format: 'png',quality:
             <h2 style="margin-top: 13px; margin-right: 6px;">{Astro.props.text.hobby_minecraft}</h2>
             <p style="font-size: 1.1rem; margin-right: 6px;">{Astro.props.text.hobby_minecraft_desc}</p>
         </a></div>
-        <div id="other-hobby" style={`background-image: url('${optimizedOtherCube.src}');`}><a href="#other">
-            <h2 style="margin-top: 13px; margin-right: 6px;">{Astro.props.text.hobby_other}</h2>
-            <p style="font-size: 1.1rem; margin-right: 6px;">{Astro.props.text.hobby_other_desc}</p>
+        <div id="wip-hobby" style={`background-image: url('${optimizedwipCube.src}');`}><a href="#wip">
+            <h2 style="margin-top: 13px; margin-right: 6px;">{Astro.props.text.hobby_wip}</h2>
+            <p style="font-size: 1.1rem; margin-right: 6px;">{Astro.props.text.hobby_wip_desc}</p>
         </a></div>
     </div>
 </div>
@@ -40,13 +40,13 @@ const optimizedOtherCube = await getImage({src: othercube,format: 'png',quality:
     const devHobby = document.getElementById("dev-hobby");
     const musicHobby = document.getElementById("music-hobby");
     const minecraftHobby = document.getElementById("minecraft-hobby");
-    const otherHobby = document.getElementById("other-hobby");
+    const wipHobby = document.getElementById("wip-hobby");
 
     const hobbyDivs = [
         document.getElementById("dev"),
         document.getElementById("music"),
         document.getElementById("minecraft"),
-        document.getElementById("other")
+        document.getElementById("wip")
     ].filter((div): div is HTMLElement => div !== null);
 
     function highlight(id: string) {
@@ -82,8 +82,8 @@ const optimizedOtherCube = await getImage({src: othercube,format: 'png',quality:
         highlight("minecraft");
     });
 
-    otherHobby?.addEventListener("click", () => {
-        highlight("other");
+    wipHobby?.addEventListener("click", () => {
+        highlight("wip");
     });
 </script>
 

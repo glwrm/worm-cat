@@ -1,0 +1,103 @@
+---
+import { Image } from 'astro:assets';
+
+---
+<div id="wip" style="backdrop-filter: blur(12px);">
+    <h1>{Astro.props.text.title}</h1>
+    <hr />
+    <ul>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M128 128C92.7 128 64 156.7 64 192L64 448C64 483.3 92.7 512 128 512L512 512C547.3 512 576 483.3 576 448L576 192C576 156.7 547.3 128 512 128L128 128zM152 192L488 192C501.3 192 512 202.7 512 216C512 229.3 501.3 240 488 240L152 240C138.7 240 128 229.3 128 216C128 202.7 138.7 192 152 192z"/></svg>
+        <li>worm.cat</li>
+        <div class="br"></div>
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M532 71C539.6 77.1 544 86.3 544 96L544 400C544 444.2 501 480 448 480C395 480 352 444.2 352 400C352 355.8 395 320 448 320C459.2 320 470 321.6 480 324.6L480 207.9L256 257.7L256 464C256 508.2 213 544 160 544C107 544 64 508.2 64 464C64 419.8 107 384 160 384C171.2 384 182 385.6 192 388.6L192 160C192 145 202.4 132 217.1 128.8L505.1 64.8C514.6 62.7 524.5 65 532.1 71.1z"/></svg>
+        <li>fracture kit!</li>
+        <div class="br"></div>
+
+    </ul>
+</div>
+
+<style>
+    #wip {
+        grid-column: 2 / 3;
+        grid-row: 3 / 5;
+        box-sizing: border-box;
+        width: auto;
+        text-align: center;
+        border-radius: 20px;
+        padding: 0 15px;
+        margin: 5px;
+        color: white;
+        background: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        display: flex;
+        flex-direction: column;
+        font-size: 1.2rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        z-index: 5;
+    }
+
+    #wip:hover,
+    #wip.sim-hover {
+        transform: translateY(-6px) scale(1);
+        filter: blur(0);
+        box-shadow: 0 12px 40px rgba(255, 255, 255, 0.5);
+    }
+
+    #wip h1 {
+        font-family: 'Audiowide', cursive;
+        font-size: 2.5rem;
+        margin: 5px;
+        margin-top: 20px;
+        margin-right: 0;
+    }
+
+    #wip img {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 20px;
+        margin: 10px;
+        margin-top: 15px;
+    }
+
+    #wip h2 {
+        font-family: 'Audiowide', cursive;
+        font-size: 1.5rem;
+        margin: 15px;
+        margin-top: -10px;
+    }
+
+    #wip ul {
+        margin-top: 0;
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #wip li {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.2rem;
+        text-align: left;
+    }
+    
+    #wip svg {
+        width: 1.2rem;
+        height: 1.2rem;
+        fill: white;
+        margin: 5px 10px 5px -20px;
+    }
+
+    hr {
+		width: 95%;
+		border: 1px solid rgba(255, 255, 255, 0.5);
+		margin: 10px 0 15px 0;
+        align-self: center;
+	}
+
+    .br {
+        flex-basis: 100%;
+        height: 0;
+    }
+</style>

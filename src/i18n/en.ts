@@ -12,14 +12,24 @@ export default {
         hobby_music_desc: "Producing electronic music",
         hobby_minecraft: "MINECRAFT",
         hobby_minecraft_desc: "Datapacking, modding, & messing around",
-        hobby_other: "OTHER",
-        hobby_other_desc: "More hobbies I enjoy",
+        hobby_wip: "WIP",
+        hobby_wip_desc: "Projects I'm working on",
     },
     music: {
         title: "Music",
         currentDemo: "Currently working on:",
         demoTitle: "Untitled",
     },
+    dev: {
+        title: "Dev",
+    },
+    minecraft: {
+        title: "Minecraft",
+    },
+    wip: {
+        title: "WIP",
+    },
+
     credits: {
         title: "Credits",
     },

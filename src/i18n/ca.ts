@@ -12,14 +12,24 @@ export default {
         hobby_music_desc: "Produir música electrònica",
         hobby_minecraft: "MINECRAFT",
         hobby_minecraft_desc: "Comandes, modding i experimentació",
-        hobby_other: "ALTRES",
-        hobby_other_desc: "Més aficions que m'agraden",
+        hobby_wip: "WIP",
+        hobby_wip_desc: "Projectes en què treballo",
     },
     music: {
         title: "Música",
         currentDemo: "Actualment treballant en:",
         demoTitle: "Sense títol",
     },
+    dev: {
+        title: "Dev",
+    },
+    minecraft: {
+        title: "Minecraft",
+    },
+    wip: {
+        title: "WIP",
+    },
+
     credits: {
         title: "Crèdits",
     },

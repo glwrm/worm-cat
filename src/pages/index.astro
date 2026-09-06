@@ -6,6 +6,9 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
 import Music from '../components/Music.astro';
+import Dev from '../components/Dev.astro';
+import Minecraft from '../components/Minecraft.astro';
+import Wip from '../components/Wip.astro';
 
 export const prerender = false;
 
@@ -20,4 +23,7 @@ if (languageCookie === "ca") {
 	<Hero text={t.hero}/>
 	<About text={t.about}/>
 	<Music text={t.music}/>
+	<!--<Dev text={t.dev}/>-->
+	<!--<Minecraft text={t.minecraft}/>-->
+	<Wip text={t.wip}/>
 </Layout>

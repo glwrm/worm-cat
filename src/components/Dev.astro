@@ -1,0 +1,68 @@
+---
+import { Image } from 'astro:assets';
+
+---
+<div id="dev" style="backdrop-filter: blur(12px);">
+    <h1>{Astro.props.text.title}</h1>
+    <hr />
+</div>
+
+<style>
+    #dev {
+        grid-column: 3 / 5;
+        grid-row: 3 / 4;
+        box-sizing: border-box;
+        width: auto;
+        text-align: center;
+        border-radius: 20px;
+        padding: 0 15px;
+        margin: 5px;
+        color: white;
+        background: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        display: flex;
+        flex-direction: column;
+        font-size: 1.2rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        z-index: 5;
+    }
+
+    #dev:hover,
+    #dev.sim-hover {
+        transform: translateY(-6px) scale(1);
+        filter: blur(0);
+        box-shadow: 0 12px 40px rgba(255, 255, 255, 0.5);
+    }
+
+    #dev h1 {
+        font-family: 'Audiowide', cursive;
+        font-size: 2.5rem;
+        margin: 5px;
+        margin-top: 20px;
+        margin-right: 0;
+    }
+
+    #dev img {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 20px;
+        margin: 10px;
+        margin-top: 15px;
+    }
+
+    #dev h2 {
+        font-family: 'Audiowide', cursive;
+        font-size: 1.5rem;
+        margin: 15px;
+        margin-top: -10px;
+    }
+
+    hr {
+		width: 95%;
+		border: 1px solid rgba(255, 255, 255, 0.5);
+		margin: 10px 0 25px 0;
+        align-self: center;
+	}
+</style>
