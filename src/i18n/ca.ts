@@ -32,5 +32,6 @@ export default {
 
     credits: {
         title: "Crèdits",
+        desc: "Un agraïment especial als artistes i fotògrafs que han creat moltes de les imatges utilitzades en aquest lloc. Aquí en teniu alguns:",
     },
 }

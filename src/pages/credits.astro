@@ -1,6 +1,7 @@
 ---
 import SmallLayout from '../layouts/smallLayout.astro';
 import CreditsHead from '../components/CreditsHead.astro';
+import CreditsImage from '../components/CreditsImage.astro';
 
 import en from "../i18n/en";
 const t = en;
@@ -8,4 +9,5 @@ const t = en;
 
 <SmallLayout>
     <CreditsHead text={t.credits} />
+    <CreditsImage text={t.credits} />
 </SmallLayout>

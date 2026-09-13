@@ -32,5 +32,6 @@ export default {
 
     credits: {
         title: "Credits",
+        desc: "Special thanks to the artists/photographers who made many images used on this site. Here are some of them:",
     },
 }
